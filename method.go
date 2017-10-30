@@ -1,4 +1,4 @@
-package SliceUtils
+package sliceutils
 
 func (c SliceUtils) Sort(f func (x, y interface{}) bool) SliceUtils{
 	for i := 0; i < c.Len(); i++{

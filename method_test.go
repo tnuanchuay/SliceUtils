@@ -1,4 +1,4 @@
-package SliceUtils
+package sliceutils
 
 import (
 	"testing"

@@ -22,7 +22,7 @@ func (c SliceUtils) Swap(i, j int)SliceUtils{
 func (c SliceUtils) Reverse()SliceUtils{
 	new := SliceUtils{}
 	for _, d := range c{
-		new.UnShift(d)
+		new = new.UnShift(d)
 	}
 	return new
 }
@@ -70,9 +70,9 @@ func (c SliceUtils) ForEach(f func (i interface{})) SliceUtils{
 	return c
 }
 
-func (c *SliceUtils) UnShift(i interface{})SliceUtils{
-	*c = append(SliceUtils{i}, *c...)
-	return *c
+func (c SliceUtils) UnShift(i interface{})SliceUtils{
+	new := append(SliceUtils{i}, c...)
+	return new
 }
 
 func (c *SliceUtils) Shift() interface{}{
@@ -85,9 +85,9 @@ func (c *SliceUtils) Shift() interface{}{
 	}
 }
 
-func (c *SliceUtils) Queue(i interface{}) SliceUtils{
-	c.Push(i)
-	return *c
+func (c SliceUtils) Queue(i interface{}) SliceUtils{
+	new := c.Push(i)
+	return new
 }
 
 func (c *SliceUtils) Pop() interface{}{
@@ -100,9 +100,9 @@ func (c *SliceUtils) Pop() interface{}{
 	}
 }
 
-func (c *SliceUtils) Push(i interface{}) SliceUtils{
-	*c = append(*c, i)
-	return *c
+func (c SliceUtils) Push(i interface{}) SliceUtils{
+	new := append(c, i)
+	return new
 }
 
 func (c SliceUtils) Tail() interface{}{

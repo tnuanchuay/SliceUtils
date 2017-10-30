@@ -170,7 +170,7 @@ func TestShift1Member(t *testing.T){
 func TestUnShift(t *testing.T){
 	d := []int{2, 3, 4}
 	su := Int(d)
-	su.UnShift(1)
+	su = su.UnShift(1)
 	if su.Len() != 4{
 		t.Error("expect", 4, "actual", su.Len())
 	}
@@ -235,7 +235,7 @@ func TestPop(t *testing.T){
 func TestQueue(t *testing.T){
 	d := []int{1, 2, 3}
 	su := Int(d)
-	su.Queue(9)
+	su = su.Queue(9)
 	if su.Len() != 4 {
 		t.Error("expect", 4, "actual", su.Len())
 	}
@@ -248,7 +248,7 @@ func TestQueue(t *testing.T){
 func TestPush(t *testing.T){
 	d := []int{1, 2, 3}
 	su := Int(d)
-	su.Push(9)
+	su = su.Push(9)
 	if su.Len() != 4 {
 		t.Error("expect", 4, "actual", su.Len())
 	}

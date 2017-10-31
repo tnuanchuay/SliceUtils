@@ -75,14 +75,18 @@ func (c SliceUtils) UnShift(i interface{})SliceUtils{
 	return new
 }
 
-func (c *SliceUtils) Shift() interface{}{
+func (c SliceUtils) Shift() (SliceUtils, interface{}){
 	if c.Len() > 0{
 		t := c.Head()
-		*c = (*c)[1:c.Len()]
-		return t
+		new := c[1:]
+		return new, t
 	}else{
-		return nil
+		return c, nil
 	}
+}
+
+func (c SliceUtils) DeQueue() (SliceUtils, interface{}){
+	return c.Shift()
 }
 
 func (c SliceUtils) Queue(i interface{}) SliceUtils{
@@ -90,13 +94,13 @@ func (c SliceUtils) Queue(i interface{}) SliceUtils{
 	return new
 }
 
-func (c *SliceUtils) Pop() interface{}{
-	if c.Len() > 0 {
+func (c SliceUtils) Pop() (SliceUtils, interface{}){
+	if c.Len() > 0{
 		t := c.Tail()
-		*c = (*c)[:c.Len()-1]
-		return t
+		new := c[:c.Len() - 1]
+		return new, t
 	}else{
-		return nil
+		return c, nil
 	}
 }
 

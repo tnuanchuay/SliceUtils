@@ -144,8 +144,8 @@ func TestForEach(t *testing.T){
 func TestShift0Member(t *testing.T){
 	d := []int{}
 	su := Int(d)
-	v := su.Shift()
-	if su.Len() != 0{
+	new, v := su.Shift()
+	if new.Len() != 0{
 		t.Error("expect", 0, "actual", su.Len())
 	}
 
@@ -157,8 +157,8 @@ func TestShift0Member(t *testing.T){
 func TestShift1Member(t *testing.T){
 	d := []int{9}
 	su := Int(d)
-	v := su.Shift()
-	if su.Len() != 0{
+	new, v := su.Shift()
+	if new.Len() != 0{
 		t.Error("expect", 0, "actual", su.Len())
 	}
 
@@ -183,8 +183,8 @@ func TestUnShift(t *testing.T){
 func TestShift(t *testing.T){
 	d := []int{9, 2}
 	su := Int(d)
-	v := su.Shift()
-	if su.Len() != 1{
+	new, v := su.Shift()
+	if new.Len() != 1{
 		t.Error("expect", 1, "actual", su.Len())
 	}
 
@@ -196,8 +196,8 @@ func TestShift(t *testing.T){
 func TestPopIf0Member(t *testing.T){
 	d := []int{}
 	su := Int(d)
-	v := su.Pop()
-	if su.Len() != 0{
+	new, v := su.Pop()
+	if new.Len() != 0{
 		t.Error("expect", 0, "actual", su.Len())
 	}
 
@@ -209,8 +209,8 @@ func TestPopIf0Member(t *testing.T){
 func TestPopIf1Member(t *testing.T){
 	d := []int{1}
 	su := Int(d)
-	v := su.Pop()
-	if su.Len() != 0{
+	new, v := su.Pop()
+	if new.Len() != 0{
 		t.Error("expect", 0, "actual", su.Len())
 	}
 
@@ -222,8 +222,8 @@ func TestPopIf1Member(t *testing.T){
 func TestPop(t *testing.T){
 	d := []int{1, 2, 3}
 	su := Int(d)
-	v := su.Pop()
-	if su.Len() != 2{
+	new, v := su.Pop()
+	if new.Len() != 2{
 		t.Error("expect", 2, "actual", su.Len())
 	}
 
